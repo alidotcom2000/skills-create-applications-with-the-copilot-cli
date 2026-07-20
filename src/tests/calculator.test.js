@@ -31,4 +31,30 @@ describe('Calculator functions', () => {
   test('works with floats (toBeCloseTo)', () => {
     expect(c.add(0.1, 0.2)).toBeCloseTo(0.3, 10);
   });
+
+  // Extended operations
+  test('modulo: 5 % 2 = 1', () => {
+    expect(c.modulo(5, 2)).toBe(1);
+  });
+
+  test('modulo by zero throws', () => {
+    expect(() => c.modulo(5, 0)).toThrow('Modulo by zero');
+  });
+
+  test('power: 2 ** 3 = 8', () => {
+    expect(c.power(2, 3)).toBe(8);
+    expect(c.power(5, 0)).toBe(1);
+  });
+
+  test('power with large exponent', () => {
+    expect(c.power(2, 10)).toBe(1024);
+  });
+
+  test('squareRoot: sqrt(16) = 4', () => {
+    expect(c.squareRoot(16)).toBe(4);
+  });
+
+  test('squareRoot of negative throws', () => {
+    expect(() => c.squareRoot(-9)).toThrow('Square root of negative number');
+  });
 });
